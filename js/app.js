@@ -17,7 +17,7 @@ function ImageConstructor(name, imgFile) {
   this.imgFile = `./images/${imgFile}`;
   this.timesClicked = 0;
   this.timesShown = 0;
-};
+}
 
 //put constructor function objects in array
 for (let i = 0; i < imgFileArray.length; i++) {
@@ -71,7 +71,7 @@ function renderImages() {
   img3El.name = img3.name;
   //remove images from array so they don't appear next round
 
-  //only 25 rounds of images
+  //25 rounds of images
   selectionRounds++;
   if (selectionRounds >= 26) {
     roundsUp();
@@ -85,9 +85,9 @@ function handleClick(event1) {
     if (searchArrayFor.name === imageName) {
       searchArrayFor.timesClicked++;
     }
-  })
+  });
   renderImages();
-};
+}
 
 //submit event handler
 function handleSubmit(event2) {
@@ -95,7 +95,7 @@ function handleSubmit(event2) {
   let shownData = [];
   let nameData = [];
   for (let i = 0; i < constructedImages.length; i++) {
-    nameData.push(constructedImages[i].name)
+    nameData.push(constructedImages[i].name);
     clickedData.push(constructedImages[i].timesClicked);
     shownData.push(constructedImages[i].timesShown);
   }
@@ -125,9 +125,9 @@ function handleSubmit(event2) {
         }
       }
     }
-  });
+  })
 
-};
+}
 
 imgSectionEl.addEventListener('click', handleClick);
 buttonEl.addEventListener('click', handleSubmit);
