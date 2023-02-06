@@ -4,10 +4,11 @@
 const canvasEl = document.getElementById('chart');
 const ctx = canvasEl.getContext('2d');
 const divButtonEl = document.getElementById('divbutton');
-const selctImgEl = document.getElementById('selctImg');
+const selctImgE1 = document.getElementById('selctImg');
 const buttonEl = document.getElementById('viewresults');
 let selectionRounds = 0;
 const imgSectionEl = document.getElementById('imagedisplay');
+
 const imgFileArray = ['bag.jpg', 'banana.jpg', 'bathroom.jpg', 'boots.jpg', 'breakfast.jpg', 'bubblegum.jpg', 'chair.jpg', 'cthulhu.jpg', 'dog-duck.jpg', 'dragon.jpg', 'pen.jpg', 'pet-sweep.jpg', 'scissors.jpg', 'shark.jpg', 'sweep.png', 'unicorn.jpg', 'water-can.jpg'];
 let constructedImages = [];
 
@@ -62,14 +63,13 @@ function renderImages() {
   img1.timesShown++;
   img2.timesShown++;
   img3.timesShown++;
-  //asign img elements a src & name
   img1El.src = img1.imgFile;
   img2El.src = img2.imgFile;
   img3El.src = img3.imgFile;
   img1El.name = img1.name;
   img2El.name = img2.name;
   img3El.name = img3.name;
-  //remove images from array so they don't appear next round
+  //remove images for next round
 
   //25 rounds of images
   selectionRounds++;
@@ -109,11 +109,11 @@ function handleSubmit(event2) {
     data: {
       labels: nameData,
       datasets: [{
-        label: '# of clicks',
+        label: 'number of of clicks',
         data: clickedData,
         borderWidth: 1
       }, {
-        label: '# of times shown',
+        label: 'number of times shown',
         data: shownData,
         borderWidth: 1
       }]
