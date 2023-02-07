@@ -1,38 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Class 2 Demo</title>
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <title>Odd Duck Product Co</title>
 </head>
 
 <body>
+  <header>
+    <h1>Odd Duck Product Co</h1>
+  </header>
   <main>
-    <section>
-        <!--- This h1 is a heading tag. We use this to declare headings on our page. They range from h1 - h6 -->
-      <h1>This is the second class</h1>
-        <!-- p stands for paragraph. we use paragraph tags to write content in-->
-      <p>Some content</p>
-        <!-- An ordered list is a numbered list of items starting with 1-->
-      <ol>
-          <li>Priority Item #1</li>
-          <li>Priority Item #2</li>
-          <li>Priority Item #3</li>
-      </ol>
-
-        <!-- An unordered list is a list of bullet points. Order doesn't matter-->
-      <ul>
-          <li>Here is a random task</li>
-          <li>Here is another random task</li>
-          <li>Here is final random task</li>
-      </ul>
-
-      <p class="more-content">This is some more content</p>
-      <p id="something-else">This has something else entirely.</p>
-      <p class="more-content"> This is our last bit of content</p>
+    <h2 id="selctImg">Like what you see? Select an image from below!</h2>
+    <section id="imagedisplay">
+      <img id="image1" alt="weirdProduct">
+      <img id="image2" alt="weirdProduct">
+      <img id="image3" alt="weirdProduct">
     </section>
+    <section id="finishtext">
+    </section>
+    <div id="divbutton">
+      <button id="viewresults">VIEW RESULTS</button>
+    </div>
+    <div id="canvas-div">
+      <canvas id="chart" hidden></canvas>
+    </div>
   </main>
-  <script src="app.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 
 </html>

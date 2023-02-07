@@ -1,0 +1,92 @@
+body{
+  margin: 5%;
+  font-family: 'Roboto', Verdana, sans-serif;
+  background-color: bisque;
+}
+
+header{
+  margin-bottom: 20px;
+  background-color: bisque;
+}
+
+h1{
+  display: inline-block;
+  font-size: 40px;
+  font-weight: 600;
+  border: solid 5px black;
+  border-radius: 60%;
+  padding: 25px;
+  background-color: rgb(10, 181, 30);
+}
+
+h2{
+  margin: 50px 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+h3{
+  margin: 100px 0;
+  text-align: center;
+  font-family: fantasy;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+#canvas-div{
+  display:flex;
+  margin: 40px auto;
+  justify-content: center;
+}
+
+canvas{
+  width: 80%;
+  border: solid rgb(175, 11, 11) 2px;
+  background-color:bisque;
+}
+
+button{
+  display: none;
+  margin: auto;
+  padding: 15px;
+  background-color: rgb(177, 184, 38);
+  font-size: 40px;
+  font-family: 'Roboto' ,sans-serif;
+  font-weight: 800;
+  border: 4px solid black;
+}
+
+button:hover{
+  background-color: rgb(134, 154, 47);
+  box-shadow: 2px 2px;
+  padding: 17px;
+}
+
+button:active{
+  padding: 14px;
+  box-shadow: none;
+}
+
+#imagedisplayed{
+  width: 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px;
+}
+
+section > img:hover{
+  border: 5px solid black;
+}
+
+#image1{
+ width: 300px;
+}
+
+#image2{
+  width: 300px;
+} 
+
+#image3{
+  width: 300px;
+}
