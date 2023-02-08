@@ -162,7 +162,6 @@ let dataChart = function () {
 
     options: {
       indexAxis: 'x',
-      backgroundColor: 'green',
       backgroundColor: 'purple',
       barThickness: '15',
       borderRadius: '15',
