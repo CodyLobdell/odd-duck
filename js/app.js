@@ -41,8 +41,9 @@ let unicorn = new Product('unicorn', 'images/unicorn.jpg');
 let waterCan = new Product('water-can', 'images/water-can.jpg');
 let wineGlass = new Product('wine-glass', 'images/wine-glass.jpg');
 
-// all product listed in array
+//all product listed in array
 let list = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass];
+
 
 //Random image function
 function rng() {
@@ -72,15 +73,25 @@ function renderImg() {
 }
 
 renderImg();
-// add event listener
 
+//save local storage
+const productArr = [list];
+localStorage.setItem('product', JSON.stringify(productArr));
+
+
+//retrieve local storage
+const productData = JSON.parse(localStorage.getItem('product'));
+console.log(productData);
+
+//add event listener
 let img = document.getElementById('img');
 
 
 let resultUl = document.getElementById('resultUl');
 
 let mouseClick = function (event) {
-  // console.log(event.target.alt);
+
+  //console.log(event.target.alt);
   let clickName = event.target.alt;
   for (let i = 0; i < list.length; i++) {
     if (clickName === list[i].name) {
@@ -103,7 +114,7 @@ let mouseClick = function (event) {
 
 img.addEventListener('click', mouseClick);
 
-// render result
+//render result
 let render = function () {
   for (let j = 0; j < list.length; j++) {
     let newList = document.createElement('li');
