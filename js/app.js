@@ -21,25 +21,25 @@ function Product(name, src) {
 
 //all products
 
-let bag = new Product('bag', 'images/bag.jpg');
-let banana = new Product('banana', 'images/banana.jpg');
-let bathroom = new Product('bathroom', 'images/bathroom.jpg');
-let boots = new Product('boots', 'images/boots.jpg');
-let breakfast = new Product('breakfast', 'images/breakfast.jpg');
-let bubblegum = new Product('bubblegum', 'images/bubblegum.jpg');
-let chair = new Product('chair', 'images/chair.jpg');
-let cthulhu = new Product('cthulhu', 'images/cthulhu.jpg');
-let dogDuck = new Product('dog-duck', 'images/dog-duck.jpg');
-let dragon = new Product('dragon', 'images/dragon.jpg');
-let pen = new Product('pen', 'images/pen.jpg');
-let petSweep = new Product('pet-sweep', 'images/pet-sweep.jpg');
-let scissors = new Product('scissors', 'images/scissors.jpg');
-let shark = new Product('shark', 'images/shark.jpg');
-let sweep = new Product('sweep', 'images/sweep.png');
-let tauntaun = new Product('tauntaun', 'images/tauntaun.jpg');
-let unicorn = new Product('unicorn', 'images/unicorn.jpg');
-let waterCan = new Product('water-can', 'images/water-can.jpg');
-let wineGlass = new Product('wine-glass', 'images/wine-glass.jpg');
+let bag = new Product('bag', 'img/bag.jpg');
+let banana = new Product('banana', 'img/banana.jpg');
+let bathroom = new Product('bathroom', 'img/bathroom.jpg');
+let boots = new Product('boots', 'img/boots.jpg');
+let breakfast = new Product('breakfast', 'img/breakfast.jpg');
+let bubblegum = new Product('bubblegum', 'img/bubblegum.jpg');
+let chair = new Product('chair', 'img/chair.jpg');
+let cthulhu = new Product('cthulhu', 'img/cthulhu.jpg');
+let dogDuck = new Product('dog-duck', 'img/dog-duck.jpg');
+let dragon = new Product('dragon', 'img/dragon.jpg');
+let pen = new Product('pen', 'img/pen.jpg');
+let petSweep = new Product('pet-sweep', 'img/pet-sweep.jpg');
+let scissors = new Product('scissors', 'img/scissors.jpg');
+let shark = new Product('shark', 'img/shark.jpg');
+let sweep = new Product('sweep', 'img/sweep.png');
+let tauntaun = new Product('tauntaun', 'img/tauntaun.jpg');
+let unicorn = new Product('unicorn', 'img/unicorn.jpg');
+let waterCan = new Product('water-can', 'img/water-can.jpg');
+let wineGlass = new Product('wine-glass', 'img/wine-glass.jpg');
 
 //all product listed in array
 let list = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass];
