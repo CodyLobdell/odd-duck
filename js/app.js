@@ -151,7 +151,8 @@ let dataChart = function () {
 
     options: {
       indexAxis: 'x',
-      // backgroundColor:['rgba(255, 99, 132, 0.2)','rgba(255, 159, 64, 0.2)','rgba(214, 73, 255, 205, 86, 0.2)'],
+      backgroundColor: 'green',
+      backgroundColor: 'purple',
       barThickness: '15',
       borderRadius: '15',
       borderWidth: 5,
