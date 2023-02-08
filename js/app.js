@@ -41,7 +41,7 @@ let unicorn = new Product('unicorn', 'images/unicorn.jpg');
 let waterCan = new Product('water-can', 'images/water-can.jpg');
 let wineGlass = new Product('wine-glass', 'images/wine-glass.jpg');
 
-// all product listed in an array
+// all product listed in array
 let list = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass];
 
 //Random image function
@@ -59,7 +59,7 @@ function renderImg() {
     img2 = rng();
     img3 = rng();
   }
-  //cycle through images for next pick
+  //cycle through images for next prduct
   image1.src = list[img1].src;
   image2.src = list[img2].src;
   image3.src = list[img3].src;
@@ -137,14 +137,14 @@ let dataChart = function () {
     data: {
       labels: listName,
       datasets: [{
-        label: '# of Views',
+        label: 'number of Views',
         data: listView,
-        borderWidth: 1
+        borderWidth: 2
       },
       {
-        label: '# of Likes',
+        label: 'number of Likes',
         data: listLike,
-        borderWidth: 1
+        borderWidth: 2
       }]
     },
 
