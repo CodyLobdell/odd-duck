@@ -137,12 +137,12 @@ let dataChart = function () {
     data: {
       labels: listName,
       datasets: [{
-        label: 'number of Views',
+        label: 'Product Views',
         data: listView,
         borderWidth: 2
       },
       {
-        label: 'number of Likes',
+        label: 'Product Likes',
         data: listLike,
         borderWidth: 2
       }]
@@ -150,11 +150,11 @@ let dataChart = function () {
 
 
     options: {
-      indexAxis: 'y',
-      // backgroundColor:['rgba(118, 208, 113, 0.54)','rgba(219, 178, 73, 0.54)','rgba(214, 73, 219, 0.54)'],
-      barThickness: '8',
-      borderRadius: '8',
-      borderWidth: 2,
+      indexAxis: 'x',
+      // backgroundColor:['rgba(255, 99, 132, 0.2)','rgba(255, 159, 64, 0.2)','rgba(214, 73, 255, 205, 86, 0.2)'],
+      barThickness: '15',
+      borderRadius: '15',
+      borderWidth: 5,
       scales: {
         y: {
           beginAtZero: true
