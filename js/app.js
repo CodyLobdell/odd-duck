@@ -1,135 +1,117 @@
 'use strict';
 
-//variables
-const canvasEl = document.getElementById('chart');
-const ctx = canvasEl.getContext('2d');
-const divButtonEl = document.getElementById('divbutton');
-const selctImgE1 = document.getElementById('selctImg');
-const buttonEl = document.getElementById('viewresults');
-let selectionRounds = 0;
-const imgSectionEl = document.getElementById('imagedisplay');
+// number of product votes total
 
-const imgFileArray = ['bag.jpg', 'banana.jpg', 'bathroom.jpg', 'boots.jpg', 'breakfast.jpg', 'bubblegum.jpg', 'chair.jpg', 'cthulhu.jpg', 'dog-duck.jpg', 'dragon.jpg', 'pen.jpg', 'pet-sweep.jpg', 'scissors.jpg', 'shark.jpg', 'sweep.png', 'unicorn.jpg', 'water-can.jpg'];
-let constructedImages = [];
+let vote = 0;
+let maxVote = 25;
 
-//constructor function
-function ImageConstructor(name, imgFile) {
+// Render img
+let image1 = document.querySelector('#img img:first-child');
+let image2 = document.querySelector('#img img:nth-child(2)');
+let image3 = document.querySelector('#img img:nth-child(3)');
+
+//constructor function for product
+function Product(name, src) {
   this.name = name;
-  this.imgFile = `./images/${imgFile}`;
-  this.timesClicked = 0;
-  this.timesShown = 0;
+  this.src = src;
+  // this.src = `img/${name}.jpg`;
+  this.view = 0;
+  this.like = 0;
 }
 
-//put constructor function objects in array
-for (let i = 0; i < imgFileArray.length; i++) {
-  let newlyMadeImg = new ImageConstructor(imgFileArray[i].slice(0, imgFileArray[i].length - 4), imgFileArray[i]);
-  constructedImages.push(newlyMadeImg);
-}
-console.log(constructedImages);
+//all products
 
-//find a random image to grab
-function getRandomIndex() {
-  return Math.floor(Math.random() * constructedImages.length);
+let bag = new Product('bag', 'images/bag.jpg');
+let banana = new Product('banana', 'images/banana.jpg');
+let bathroom = new Product('bathroom', 'images/bathroom.jpg');
+let boots = new Product('boots', 'images/boots.jpg');
+let breakfast = new Product('breakfast', 'images/breakfast.jpg');
+let bubblegum = new Product('bubblegum', 'images/bubblegum.jpg');
+let chair = new Product('chair', 'images/chair.jpg');
+let cthulhu = new Product('cthulhu', 'images/cthulhu.jpg');
+let dogDuck = new Product('dog-duck', 'images/dog-duck.jpg');
+let dragon = new Product('dragon', 'images/dragon.jpg');
+let pen = new Product('pen', 'images/pen.jpg');
+let petSweep = new Product('pet-sweep', 'images/pet-sweep.jpg');
+let scissors = new Product('scissors', 'images/scissors.jpg');
+let shark = new Product('shark', 'images/shark.jpg');
+let sweep = new Product('sweep', 'images/sweep.png');
+let tauntaun = new Product('tauntaun', 'images/tauntaun.jpg');
+let unicorn = new Product('unicorn', 'images/unicorn.jpg');
+let waterCan = new Product('water-can', 'images/water-can.jpg');
+let wineGlass = new Product('wine-glass', 'images/wine-glass.jpg');
+
+// all product listed in an array
+let list = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass];
+
+//Random image function
+function rng() {
+  return Math.floor(Math.random() * list.length);
 }
 
-//when 25 rounds is up function
-function roundsUp() {
-  selectImgEl.style.display = "none";
-  imgSectionEl.style.display = "none";
-  let finishText = document.getElementById('finishtext');
-  let h3El = document.createElement('h3');
-  let h3Content = 'Thank you for taking our survey!'
-  h3El.innerHTML = h3Content;
-  finishText.appendChild(h3El);
-  //make button appear
-  buttonEl.style.display = "block";
-}
+function renderImg() {
 
-//create function to render images
-function renderImages() {
-  //use document to put images in their html section
-  let img1El = document.getElementById('image1');
-  let img2El = document.getElementById('image2');
-  let img3El = document.getElementById('image3');
-  //set images from array to a variable
-  let img1 = constructedImages[getRandomIndex()];
-  let img2 = constructedImages[getRandomIndex()];
-  let img3 = constructedImages[getRandomIndex()];
+  let img1 = rng();
+  let img2 = rng();
+  let img3 = rng();
+  console.log(img1, img2, img3);
   while (img1 === img2 || img1 === img3 || img2 === img3) {
-    img1 = constructedImages[getRandomIndex()];
-    img2 = constructedImages[getRandomIndex()];
-    img3 = constructedImages[getRandomIndex()];
+    img2 = rng();
+    img3 = rng();
   }
-  img1.timesShown++;
-  img2.timesShown++;
-  img3.timesShown++;
-  img1El.src = img1.imgFile;
-  img2El.src = img2.imgFile;
-  img3El.src = img3.imgFile;
-  img1El.name = img1.name;
-  img2El.name = img2.name;
-  img3El.name = img3.name;
-  //remove images for next round
-
-  //25 rounds of images
-  selectionRounds++;
-  if (selectionRounds >= 26) {
-    roundsUp();
-  }
+  //cycle through images for next pick
+  image1.src = list[img1].src;
+  image2.src = list[img2].src;
+  image3.src = list[img3].src;
+  image1.alt = list[img1].name;
+  image2.alt = list[img2].name;
+  image3.alt = list[img3].name;
+  list[img1].view++;
+  list[img2].view++;
+  list[img3].view++;
 }
 
-//click event handler
-function handleClick(event1) {
-  let imageName = event1.target.name;
-  constructedImages.forEach(function (searchArrayFor) {
-    if (searchArrayFor.name === imageName) {
-      searchArrayFor.timesClicked++;
+renderImg();
+// add event listener
+
+let img = document.getElementById('img');
+
+
+let resultUl = document.getElementById('resultUl');
+
+let mouseClick = function (event) {
+  // console.log(event.target.alt);
+  let clickName = event.target.alt;
+  for (let i = 0; i < list.length; i++) {
+    if (clickName === list[i].name) {
+      list[i].like++;
+      vote++;
+      console.log(list[i].like);
     }
-  });
-  renderImages();
-}
-
-//submit event handler
-function handleSubmit(event2) {
-  let clickedData = [];
-  let shownData = [];
-  let nameData = [];
-  for (let i = 0; i < constructedImages.length; i++) {
-    nameData.push(constructedImages[i].name);
-    clickedData.push(constructedImages[i].timesClicked);
-    shownData.push(constructedImages[i].timesShown);
   }
-  buttonEl.removeEventListener('click', handleSubmit);
-  console.log(clickedData, shownData, nameData);
+  if (vote < maxVote) {
+    renderImg();
+  } else {
+    img.removeEventListener('click', mouseClick);
+    alert('Click View Results on the left for totals.');
+    // render();
+    viewResult.addEventListener('click', render);
+    renderImg();
+  }
 
-  canvasEl.hidden = (false);
-  //Data visualization w ChartJS
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: nameData,
-      datasets: [{
-        label: 'number of of clicks',
-        data: clickedData,
-        borderWidth: 1
-      }, {
-        label: 'number of times shown',
-        data: shownData,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  })
+};
 
-}
+img.addEventListener('click', mouseClick);
 
-imgSectionEl.addEventListener('click', handleClick);
-buttonEl.addEventListener('click', handleSubmit);
+// render result
+let render = function () {
+  for (let j = 0; j < list.length; j++) {
+    let newList = document.createElement('li');
+    newList.textContent = `${list[j].name} has ${list[j].like} votes, and was seen ${list[j].view} times.`;
 
-renderImages();
+    resultUl.appendChild(newList);
+  }
+  viewResult.removeEventListener('click', render);
+};
+
+let viewResult = document.getElementById('view');
