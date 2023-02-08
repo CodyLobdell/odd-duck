@@ -94,7 +94,7 @@ let mouseClick = function (event) {
   } else {
     img.removeEventListener('click', mouseClick);
     alert('Click View Results on the left for totals.');
-    // render();
+
     viewResult.addEventListener('click', render);
     renderImg();
   }
@@ -112,6 +112,54 @@ let render = function () {
     resultUl.appendChild(newList);
   }
   viewResult.removeEventListener('click', render);
+  dataChart();
 };
 
 let viewResult = document.getElementById('view');
+
+let dataChart = function () {
+
+  let listName = [];
+  let listView = [];
+  let listLike = [];
+
+  for (let l = 0; l < list.length; l++) {
+    listName.push(list[l].name);
+    console.log(listName);
+    listView.push(list[l].view);
+    listLike.push(list[l].like);
+  }
+
+  const ctx = document.getElementById('productChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: listName,
+      datasets: [{
+        label: '# of Views',
+        data: listView,
+        borderWidth: 1
+      },
+      {
+        label: '# of Likes',
+        data: listLike,
+        borderWidth: 1
+      }]
+    },
+
+
+    options: {
+      indexAxis: 'y',
+      // backgroundColor:['rgba(118, 208, 113, 0.54)','rgba(219, 178, 73, 0.54)','rgba(214, 73, 219, 0.54)'],
+      barThickness: '8',
+      borderRadius: '8',
+      borderWidth: 2,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
