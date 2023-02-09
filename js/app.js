@@ -41,8 +41,9 @@ let unicorn = new Product('unicorn', 'images/unicorn.jpg');
 let waterCan = new Product('water-can', 'images/water-can.jpg');
 let wineGlass = new Product('wine-glass', 'images/wine-glass.jpg');
 
-// all product listed in an array
+//all product listed in array
 let list = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass];
+
 
 //Random image function
 function rng() {
@@ -59,7 +60,7 @@ function renderImg() {
     img2 = rng();
     img3 = rng();
   }
-  //cycle through images for next pick
+  //cycle through images for next prduct
   image1.src = list[img1].src;
   image2.src = list[img2].src;
   image3.src = list[img3].src;
@@ -72,15 +73,25 @@ function renderImg() {
 }
 
 renderImg();
-// add event listener
 
+//save local storage
+const productArr = [list];
+localStorage.setItem('product', JSON.stringify(productArr));
+
+
+//retrieve local storage
+const productData = JSON.parse(localStorage.getItem('product'));
+console.log(productData);
+
+//add event listener
 let img = document.getElementById('img');
 
 
 let resultUl = document.getElementById('resultUl');
 
 let mouseClick = function (event) {
-  // console.log(event.target.alt);
+
+  //console.log(event.target.alt);
   let clickName = event.target.alt;
   for (let i = 0; i < list.length; i++) {
     if (clickName === list[i].name) {
@@ -103,7 +114,7 @@ let mouseClick = function (event) {
 
 img.addEventListener('click', mouseClick);
 
-// render result
+//render result
 let render = function () {
   for (let j = 0; j < list.length; j++) {
     let newList = document.createElement('li');
@@ -137,24 +148,25 @@ let dataChart = function () {
     data: {
       labels: listName,
       datasets: [{
-        label: '# of Views',
+        label: 'Product Views',
         data: listView,
-        borderWidth: 1
+        borderWidth: 2
       },
       {
-        label: '# of Likes',
+        label: 'Product Likes',
         data: listLike,
-        borderWidth: 1
+        borderWidth: 2
       }]
     },
 
 
     options: {
-      indexAxis: 'y',
-      // backgroundColor:['rgba(118, 208, 113, 0.54)','rgba(219, 178, 73, 0.54)','rgba(214, 73, 219, 0.54)'],
-      barThickness: '8',
-      borderRadius: '8',
-      borderWidth: 2,
+      indexAxis: 'x',
+      backgroundColor: 'green',
+      backgroundColor: 'purple',
+      barThickness: '15',
+      borderRadius: '15',
+      borderWidth: 5,
       scales: {
         y: {
           beginAtZero: true
